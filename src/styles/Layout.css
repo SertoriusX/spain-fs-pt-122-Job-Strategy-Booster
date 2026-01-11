@@ -1,0 +1,93 @@
+:root {
+  --main-color: #ffffff;
+  --card-color: #d9d9d9;
+  --font-color: #1b1b1b;
+  --ligther-font-color: #6f6f6f;
+}
+
+.layout {
+  display: flex;
+  margin: 1.5%;
+  box-sizing: border-box;
+  width: 97%;
+  height: 100vh;
+  gap: 1rem;
+}
+
+.side_bar {
+  width: 15%;
+  padding: 20px;
+  background-color: var(--main-color);
+  border-radius: 10px;
+}
+
+.side_bar .header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+
+  .logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    background-color: blue;
+  }
+  h3 {
+    margin-left: 5px;
+    color: var(--font-color);
+  }
+}
+
+.side_bar .nav_bar {
+  h3 {
+    color: var(--font-color);
+    position: relative;
+    margin-bottom: 20px;
+  }
+  h3::after {
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    content: "";
+    background-color: var(--ligther-font-color);
+    position: absolute;
+  }
+}
+
+/* TODO: DEFINIR LAS MEDIDAS DE LA APP */
+.side_bar .general{
+    margin-top: 100px;
+}
+
+.side_bar .nav_bar_buttons,
+.side_bar .tools_buttons {
+  display: flex;
+  flex-direction: column;
+
+  .nav_bar_button {
+
+    .icon{
+        font-size: 20px;
+        margin-right: 5px;
+    }
+
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    background-color: var(--card-color);
+  }
+}
+
+
+.content {
+  width: 85%;
+  padding: 20px;
+  background-color: var(--main-color);
+  border-radius: 10px;
+}
