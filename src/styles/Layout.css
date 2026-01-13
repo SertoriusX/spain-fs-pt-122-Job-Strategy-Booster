@@ -11,13 +11,16 @@
   margin: 1.5%;
   box-sizing: border-box;
   width: 97vw;
-  min-height: 100vh;
+
+  height: auto;
   gap: 1rem;
 }
 
 .side_bar {
   display: flex;
   flex-direction: column;
+
+  height: auto;
   width: 15%;
   padding: 20px;
   box-sizing: border-box;
@@ -98,4 +101,7 @@
   padding: 20px;
   background-color: var(--back-color);
   border-radius: 10px;
+
+  height: auto;
+    overflow: auto;
 }

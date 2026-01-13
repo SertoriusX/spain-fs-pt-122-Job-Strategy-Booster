@@ -1,9 +1,9 @@
 
-import Registration from "./RegistrationPage"
+import Layout from "./Layout"
 
 function App(){
     return(
-        <Registration/>
+        <Layout/>
     )
 }
 

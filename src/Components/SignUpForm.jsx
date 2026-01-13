@@ -1,7 +1,10 @@
+import React from 'react'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
+import { useNavigate } from 'react-router-dom';
 
-function SignUpForm({changeForm}) {
+export default function SignUpForm() {
+  const navigate =useNavigate()
   return (
     <div className="form_container">
       <form className="register" action="">
@@ -12,9 +15,12 @@ function SignUpForm({changeForm}) {
         <input className="create_account" type="submit" value="Registrarme" />
       </form>
       <button className="singup_btn">Iniciar con <FontAwesomeIcon icon={faGoogle} /></button>
-      <p>Ya tienes una cuenta <span onClick={changeForm}>Accede a tu cuenta</span></p>
+      <p>Ya tienes una cuenta <span onClick={()=>navigate('/login')}>Accede a tu cuenta</span></p>
     </div>
-  );
+  )
 }
 
-export default SignUpForm
+
+
+
+
