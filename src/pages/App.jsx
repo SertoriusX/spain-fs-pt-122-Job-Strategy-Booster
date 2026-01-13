@@ -1,9 +1,9 @@
-import Layout from "./Layout"
+import { Outlet } from "react-router-dom";
 
-function App(){
-    return(
-        <Layout/>
-    )
+export default function App() {
+  return (
+    <div>
+      <Outlet />
+    </div>
+  );
 }
-
-export default App
