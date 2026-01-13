@@ -14,9 +14,17 @@
   align-items: center;
   justify-content: center;
 }
+.container1 {
+  height: 100vh;
+  background-color: var(--back-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
+}
 .log_in_page {
   display: flex;
+  justify-content: center;
   width: 90vw;
   height: 90vh;
   border-radius: 20px;
@@ -30,7 +38,12 @@
   margin: 20px 50px;
   padding: 10px;
 }
+.registration_form1 {
+    margin-top: 130px;
 
+ width: 50%;
+  padding: 10px;
+}
 .header {
   display: flex;
   align-items: center;

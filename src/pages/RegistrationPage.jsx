@@ -1,12 +1,10 @@
+import React from 'react'
 import { useState } from "react";
 import "../styles/registration.css";
-import LoginForm from "../Components/LogInForm";
-import SignUpForm from "../Components/SignUp";
-
-function Registration() {
-  const [formType, setFormType] = useState("login");
+import SignUpForm from "../Components/SignUpForm";
+export default function RegistrationPage() {
   return (
-    <div className="container">
+     <div className="container">
       <div className="log_in_page">
         <div className="registration_form">
           <div className="header">
@@ -16,18 +14,22 @@ function Registration() {
               <p>Manten al dia tus candidaturas</p>
             </section>
           </div>
-
-          {formType === "login" ? (
-            <LoginForm changeForm={() => setFormType("signup")} />
-          ) : (
-            <SignUpForm changeForm={() => setFormType("login")} />
-          )}
+          <SignUpForm/>
         </div>
 
         <div className="img"></div>
       </div>
     </div>
-  );
+  )
 }
 
-export default Registration;
+
+
+
+
+
+
+
+
+
+
