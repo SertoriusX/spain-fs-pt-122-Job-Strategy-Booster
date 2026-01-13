@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from "react";
 import "../styles/registration.css";
-import SignUpForm from "../Components/SignUpForm";
+import SignUpForm from "../Components/SignUpForm.jsx";
 export default function RegistrationPage() {
   return (
      <div className="container">

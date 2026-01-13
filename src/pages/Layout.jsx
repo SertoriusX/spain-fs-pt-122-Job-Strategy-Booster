@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useContext, useState } from "react";
 import NavBarButton from "../Components/NavBarButton";
 import "../styles/Layout.css";
 import React from "react";
@@ -13,17 +13,23 @@ import {
   faGear,
   faCircleQuestion,
 
-  faRightFromBracket ,
+  faRightFromBracket,
   faUserPlus, faRightToBracket,
   faChevronDown,
 } from "@fortawesome/free-solid-svg-icons";
 import { faLinkedin, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { faBriefcase } from "@fortawesome/free-solid-svg-icons";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
+import { UserContext } from "../context/user/UserContext";
 
 function Layout() {
+  const navigate = useNavigate()
   const [openPost, setOpenPost] = useState(false);
-
+  const { token, logingOut } = useContext(UserContext)
+  const logOut = () => {
+    logingOut();
+    navigate('/login')
+  }
 
   return (
     <div className="layout">
@@ -35,42 +41,48 @@ function Layout() {
             Booster
           </h3>
         </div>
+       
+ <div className="nav_bar">
+            <h3>Menu</h3>
+            <div className="nav_bar_buttons">
+ {token ? (<>
+<NavBarButton icon={faHouse} label="Home" to="home" />
 
-        <div className="nav_bar">
-          <h3>Menu</h3>
-          <div className="nav_bar_buttons">
-
-          <NavBarButton icon={faHouse} label="Home" to="home" />
-
-            <div onClick={() => setOpenPost(!openPost)}>
-              <NavBarButton icon={faClipboardList} label="Postulaciones" to="postulaciones" />
-            </div>
-
-            {openPost && (
-              <div className="dropdown">
-                <NavBarButton icon={faLinkedin} label="LinkedIn" to="linkendin"/>
-                <NavBarButton icon={faBriefcase} label="Indeed" to="indead" />
-
+              <div onClick={() => setOpenPost(!openPost)}>
+                <NavBarButton icon={faClipboardList} label="Postulaciones" to="postulaciones" />
               </div>
-            )}
 
-            <NavBarButton icon={faBookBookmark} label="Curriculums" to="curriculums" />
+              {openPost && (
+                <div className="dropdown">
+                  <NavBarButton icon={faLinkedin} label="LinkedIn" to="linkendin" />
+                  <NavBarButton icon={faBriefcase} label="Indeed" to="indead" />
 
-            <NavBarButton icon={faHandshake} label="Entrevista" />
+                </div>
+              )}
+
+              <NavBarButton icon={faBookBookmark} label="Curriculums" to="curriculums" />
+
+              <NavBarButton icon={faHandshake} label="Entrevista" />
+
+         
+        </>) : (<></>)}
+              
+            </div>
           </div>
-        </div>
-
         <div className="general">
           <h3>General</h3>
           <div className="tools_buttons">
+            {token ? (<> <NavBarButton icon={faGear} label="Ajustes" />
+              <NavBarButton icon={faCircleQuestion} label="Ayuda" />
+              <NavBarButton icon={faRightFromBracket} label="Salir" onClick={logOut} /></>) : 
+              
+              (<><NavBarButton icon={faUserPlus} label="Register" to="register" />
+                <NavBarButton icon={faRightToBracket} label="Login" to="login" /></>)}
 
-            <NavBarButton icon={faGear} label="Ajustes" />
-            <NavBarButton icon={faCircleQuestion} label="Ayuda" />
-            <NavBarButton icon={faRightFromBracket} label="Salir" />
-            <NavBarButton icon={faUserPlus} label="Register" to="register" />
-            <NavBarButton icon={faRightToBracket} label="Login" to="login"/>
 
-             
+
+
+
 
           </div>
         </div>
@@ -78,7 +90,7 @@ function Layout() {
 
 
       <div className="content ">
-        <Outlet/>
+        <Outlet />
 
       </div>
     </div>
