@@ -1,8 +1,9 @@
 import Layout from "./Layout"
+import Registration from "./RegistrationPage"
 
 function App(){
     return(
-        <Layout/>
+        <Registration/>
     )
 }
 
