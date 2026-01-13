@@ -1,6 +1,9 @@
+
 import { useState } from "react";
 import NavBarButton from "../Components/NavBarButton";
 import "../styles/Layout.css";
+import React from "react";
+
 
 import {
   faHouse,
@@ -9,6 +12,7 @@ import {
   faHandshake,
   faGear,
   faCircleQuestion,
+
   faRightFromBracket ,
   faUserPlus, faRightToBracket,
   faChevronDown,
@@ -19,6 +23,7 @@ import { Outlet } from "react-router-dom";
 
 function Layout() {
   const [openPost, setOpenPost] = useState(false);
+
 
   return (
     <div className="layout">
@@ -34,6 +39,7 @@ function Layout() {
         <div className="nav_bar">
           <h3>Menu</h3>
           <div className="nav_bar_buttons">
+
           <NavBarButton icon={faHouse} label="Home" to="home" />
 
             <div onClick={() => setOpenPost(!openPost)}>
@@ -49,6 +55,7 @@ function Layout() {
             )}
 
             <NavBarButton icon={faBookBookmark} label="Curriculums" to="curriculums" />
+
             <NavBarButton icon={faHandshake} label="Entrevista" />
           </div>
         </div>
@@ -56,11 +63,12 @@ function Layout() {
         <div className="general">
           <h3>General</h3>
           <div className="tools_buttons">
+
             <NavBarButton icon={faGear} label="Ajustes" />
             <NavBarButton icon={faCircleQuestion} label="Ayuda" />
             <NavBarButton icon={faRightFromBracket} label="Salir" />
-            <NavBarButton icon={faUserPlus} label="Register" />
-            <NavBarButton icon={faRightToBracket} label="Login" />
+            <NavBarButton icon={faUserPlus} label="Register" to="register" />
+            <NavBarButton icon={faRightToBracket} label="Login" to="login"/>
 
              
 
@@ -68,8 +76,10 @@ function Layout() {
         </div>
       </div>
 
+
       <div className="content ">
         <Outlet/>
+
       </div>
     </div>
   );
