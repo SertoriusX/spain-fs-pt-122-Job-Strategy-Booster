@@ -1,5 +1,5 @@
 import NavBarButton from "../Components/NavBarButton";
-import "../styles/Layout.css";
+import "../styles/layout.css";
 
 import {
   faHouse,
@@ -10,6 +10,8 @@ import {
   faCircleQuestion,
   faRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
+
+import HomePage from "./homePage";
 
 function Layout() {
   return (
@@ -43,7 +45,10 @@ function Layout() {
         </div>
       </div>
 
-      <div className="content"></div>
+      {/* PUNTO DE ENTRADA SEGUN EL CONTEDIDO DE LA WEB */}
+      <div className="content">
+        <HomePage />
+      </div>
     </div>
   );
 }
